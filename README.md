@@ -4,11 +4,11 @@ This is the repository that contains source code for the [NISF++ website](https:
 
 If you find NISF++ useful for your work please cite:
 ```
-@misc{park2021nerfies
+@misc{stolt2026nisf
   author    = {Stolt-Ansó, Nil and Dannecker, Maik and Jia, Steven and McGinnis, Julian and Rueckert, Daniel},
-  title     = {NISF++: Geometrically-grounded implicit representations of 3D$+$time cardiac function from 2D short- and long-axis MR views},
+  title     = {NISF++: Geometrically-grounded implicit representations of 3D+time cardiac function from 2D short- and long-axis MR views},
   journal   = {ArXiv},
-  year      = {2025},
+  year      = {2026},
 }
 ```
 
