@@ -101,31 +101,33 @@
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="https://arxiv.org/pdf/2011.12948"
+                <a href="#"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
                   </span>
-                  <span>Paper</span>
+                  <span>Paper (Pending)</span>
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://arxiv.org/abs/2011.12948"
+                <a href="#"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
                   </span>
-                  <span>arXiv</span>
+                  <span>arXiv (Pending)</span>
                 </a>
               </span>
               <!-- Video Link. -->
               <span class="link-block">
-                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
-                   class="external-link button is-normal is-rounded is-dark">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark"
+                   aria-disabled="true"
+                  tabindex="-1">
                   <span class="icon">
                       <i class="fab fa-youtube"></i>
                   </span>
-                  <span>Video</span>
+                  <span>Video (Pending)</span>
                 </a>
               </span>
               <!-- Code Link. -->
@@ -163,7 +165,10 @@
                  class="interpolation-image"
                  alt="Architectural figure."/>
       <h2 class="subtitle has-text-centered">
-        <span class="dnerf">NISF++</span> turns cardiac MR slices to high resolution volumes.
+        <span class="dnerf">NISF++</span> takes any number of cardiac short-axis and long-axis MR slices and combines them into continuous subject representations in world-space.
+      </h2>
+      <h2 class="subtitle has-text-centered">
+        High-resolution intensity volumes and ventricle segmentations can be generated for any time point in the cardiac phase.
       </h2>
     </div>
   </div>
@@ -173,7 +178,7 @@
   <div class="container is-max-desktop">
     <div class="hero-body">
           <video id="1021869_mesh" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/1021869.mp4"
+            <source src="./static/videos/20251125-034718-psf20k_100subj-20ann_1011525.mp4"
                     type="video/mp4">
       <h2 class="subtitle has-text-centered">
         High resolution meshes can be generated from segmentation outputs at any time point.
@@ -182,6 +187,75 @@
   </div>
 </section>
 
+
+<html>
+<head>
+    <h2 class="subtitle has-text-centered">
+       The optimization process corrects for commonplace respiratory and patient motion by refining rigid parameters in the world-space transformation.
+      We show how the prior to optimization, slices often contain sever misalignment. Post-optimization, intensities and segmentation overlap along slice intersections is minimized.
+      </h2>
+    <style>
+    body {
+        margin: 0;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+    }
+    h1 {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .mesh-gallery {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .mesh-item {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-width: 400px;
+        max-width: 600px;
+    }
+    .mesh-container {
+        width: 100%;
+        height: 500px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .mesh-container iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+    .mesh-label {
+        text-align: center;
+        margin-top: 10px;
+        font-weight: bold;
+        color: #333;
+    }
+</style>
+</head>
+<body>
+    <div class="mesh-gallery">
+        <div class="mesh-item">
+            <div class="mesh-container">
+                <iframe src="./static/objs/1021869_before.html"></iframe>
+            </div>
+            <div class="mesh-label">Initial slice alignment <br>(original slice-wise segmentation)</div>
+        </div>
+
+        <div class="mesh-item">
+            <div class="mesh-container">
+                <iframe src="./static/objs/1021869_after.html"></iframe>
+            </div>
+            <div class="mesh-label">Optimized slice alignment <br>(original slice-wise segmentation)</div>
+        </div>
+    </div>
+</body>
+</html>
 
 <!--<section class="hero is-light is-small">-->
 <!--  <div class="hero-body">-->
@@ -418,7 +492,7 @@ Our qualitative results explore how our representations can be derived irrespect
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
+    <h2 class="title">BibTeX (Pending)</h2>
     <pre><code>@misc{stolt2026nisf
   author    = {Stolt-Ansó, Nil and Dannecker, Maik and Jia, Steven and McGinnis, Julian and Rueckert, Daniel},
   title     = {NISF++: Geometrically-grounded implicit representations of 3D+time cardiac function from 2D short- and long-axis MR views},
