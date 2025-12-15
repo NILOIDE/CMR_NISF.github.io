@@ -1,6 +1,6 @@
 # NISF++
 
-This is the repository that contains source code for the [NISF++ website](https://CMR_NISF.github.io).
+This is the repository that contains source code for the [NISF++ website](https://niloide.github.io/CMR_NISF.github.io/).
 
 If you find NISF++ useful for your work please cite:
 ```
