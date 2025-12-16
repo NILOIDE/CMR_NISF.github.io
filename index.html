@@ -161,12 +161,12 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">NISF++</span> takes any number of cardiac short-axis and long-axis MR slices and combines them into continuous 4D subject representations in world-space.
+      </h2>
       <img src="./static/images/Main_fig-Page-1.jpg"
                  class="interpolation-image"
                  alt="Architectural figure."/>
-      <h2 class="subtitle has-text-centered">
-        <span class="dnerf">NISF++</span> takes any number of cardiac short-axis and long-axis MR slices and combines them into continuous subject representations in world-space.
-      </h2>
       <h2 class="subtitle has-text-centered">
         High-resolution intensity volumes and ventricle segmentations can be generated for any time point in the cardiac phase.
       </h2>
@@ -187,12 +187,11 @@
   </div>
 </section>
 
-
 <html>
 <head>
     <h2 class="subtitle has-text-centered">
-       The optimization process corrects for commonplace respiratory and patient motion by refining rigid parameters in the world-space transformation.<br>
-      We show how the prior to optimization slices often contain sever misalignment. Meanwhile, post-optimization overlap of intensities and segmentation along slice intersections is minimized.
+       <br>By design, the segmentation on every slice are precisely mutually consistent, as they are 2D cross-sectional slices of the same 3D representation.<br>
+        This is something conventional slice-wise segmentation methods are not able to guarantee. <br>
       </h2>
     <style>
     body {
@@ -219,7 +218,98 @@
     }
     .mesh-container {
         width: 100%;
-        height: 500px;
+        height: 400px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #000;
+    }
+    .mesh-container iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+    .mesh-container video {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+    }
+    .mesh-label {
+        text-align: center;
+        margin-top: 10px;
+        font-weight: bold;
+        color: #333;
+    }
+    .interactive-label {
+        text-align: left;
+        font-size: 12px;
+        color: #666;
+        font-style: italic;
+        margin-bottom: 5px;
+    }
+</style>
+</head>
+<body>
+    <div class="mesh-gallery">
+        <div class="mesh-item">
+            <div class="interactive-label">  </div>
+            <div class="mesh-container">
+                <video id="20251125-034718-psf20k_100subj-20ann_1021869_mosaic" autoplay controls muted loop playsinline>
+                    <source src="./static/videos/20251125-034718-psf20k_100subj-20ann_1021869_mosaic.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="mesh-label">Segmenting a slice equates to <br> taking 2D cross-section of 3D representation</div>
+        </div>
+
+        <div class="mesh-item">
+            <div class="interactive-label">(interactive demo)</div>
+            <div class="mesh-container">
+                <iframe src="./static/objs/20251125-034718-psf20k_100subj-20ann_1021869_pred_slices_after.html"></iframe>
+            </div>
+            <div class="mesh-label">Segmentations across all slices <br> are precisely mutually consistent </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+<html>
+<head>
+    <h2 class="subtitle has-text-centered">
+       <br> <br>The optimization process corrects for commonplace respiratory and patient motion by refining rigid parameters in the world-space transformation.<br>
+      We show how the prior to optimization slices often contain severe misalignment. Meanwhile, post-optimization overlap of intensities and segmentation along slice intersections is minimized.
+      </h2>
+    <style>
+    body {
+        margin: 0;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+    }
+    h1 {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .mesh-gallery {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .mesh-item {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-width: 400px;
+        max-width: 600px;
+    }
+    .mesh-container {
+        width: 100%;
+        height: 400px;
         border: 1px solid #ddd;
         border-radius: 8px;
         overflow: hidden;
@@ -236,26 +326,37 @@
         font-weight: bold;
         color: #333;
     }
+    .interactive-label {
+        text-align: left;
+        font-size: 12px;
+        color: #666;
+        font-style: italic;
+        margin-bottom: 5px;
+    }
 </style>
 </head>
 <body>
     <div class="mesh-gallery">
         <div class="mesh-item">
+            <div class="interactive-label">(Interactive demo)</div>
             <div class="mesh-container">
                 <iframe src="./static/objs/1021869_before.html"></iframe>
             </div>
-            <div class="mesh-label">Initial slice alignment <br>(original slice-wise segmentation)</div>
+            <div class="mesh-label">Initial alignment of GT segmentations <br>(notice misalignments between long- and short-axis slices)</div>
         </div>
 
         <div class="mesh-item">
+            <div class="interactive-label">(Interactive demo)</div>
             <div class="mesh-container">
                 <iframe src="./static/objs/1021869_after.html"></iframe>
             </div>
-            <div class="mesh-label">Optimized slice alignment <br>(original slice-wise segmentation)</div>
+            <div class="mesh-label">Optimized alignment of GT segmentations </div>
         </div>
     </div>
 </body>
 </html>
+
+
 
 <!--<section class="hero is-light is-small">-->
 <!--  <div class="hero-body">-->
