@@ -167,30 +167,107 @@
       <img src="./static/images/Main_fig-Page-1.jpg"
                  class="interpolation-image"
                  alt="Architectural figure."/>
-      <h2 class="subtitle has-text-centered">
-        High-resolution intensity volumes and ventricle segmentations can be generated for any time point in the cardiac phase.
-      </h2>
     </div>
   </div>
 </section>
 
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-          <video id="1021869_mesh" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/20251125-034718-psf20k_100subj-20ann_1011525.mp4"
-                    type="video/mp4">
-      <h2 class="subtitle has-text-centered">
-        High resolution meshes can be generated from segmentation outputs at any time point.
-      </h2>
-    </div>
-  </div>
-</section>
 
 <html>
 <head>
     <h2 class="subtitle has-text-centered">
-       <br>By design, the segmentation on every slice are precisely mutually consistent, as they are 2D cross-sectional slices of the same 3D representation.<br>
+        <br>High-resolution intensity volumes and ventricle segmentations can be generated for any time point in the cardiac phase.
+      </h2>
+    <style>
+    body {
+        margin: 0;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+    }
+    h1 {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .mesh-gallery {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .mesh-item {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-width: 400px;
+        max-width: 600px;
+    }
+    .mesh-container {
+        width: 100%;
+        height: 400px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #000;
+    }
+    .mesh-container iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+    .mesh-container video {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+    }
+    .mesh-label {
+        text-align: center;
+        margin-top: 10px;
+        font-weight: bold;
+        color: #333;
+    }
+    .interactive-label {
+        text-align: left;
+        font-size: 12px;
+        color: #666;
+        font-style: italic;
+        margin-bottom: 5px;
+    }
+</style>
+</head>
+<body>
+    <div class="mesh-gallery">
+        <div class="mesh-item">
+            <div class="interactive-label">  </div>
+            <div class="mesh-container">
+              <video id="1037010_vol" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/videos/20251217-035047-inference_trainSet_FT_ImageVisualization_test_opt5000_ft0250_volumes_1037287_highThresh110_planeNorm(0.2, 1.0, -0.15)_offset-40_cardiac_volume.mp4"
+                        type="video/mp4">
+            </div>
+            <div class="mesh-label">Intensity volume can be interpolated <br> to any desired resolution</div>
+        </div>
+
+        <div class="mesh-item">
+            <div class="interactive-label">  </div>
+            <div class="mesh-container">
+                <video id="1021869_mesh" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/20251125-034718-psf20k_100subj-20ann_1011525.mp4"
+                    type="video/mp4">
+            </div>
+            <div class="mesh-label">Meshes can be generated from <br> super-resolution segmentation predictions </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+<html>
+<head>
+    <h2 class="subtitle has-text-centered">
+       <br> <br>By design, the segmentation on every slice are precisely mutually consistent, as they are 2D cross-sectional slices of the same 3D representation.<br>
         This is something conventional slice-wise segmentation methods are not able to guarantee. <br>
       </h2>
     <style>
@@ -267,7 +344,7 @@
         </div>
 
         <div class="mesh-item">
-            <div class="interactive-label">(interactive demo)</div>
+            <div class="interactive-label">(Interactive demo)</div>
             <div class="mesh-container">
                 <iframe src="./static/objs/20251125-034718-psf20k_100subj-20ann_1021869_pred_slices_after.html"></iframe>
             </div>
@@ -567,30 +644,29 @@ Our qualitative results explore how our representations can be derived irrespect
 <!--    &lt;!&ndash;/ Animation. &ndash;&gt;-->
 
 <section class="section">
-    <!-- Concurrent Work. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Related Links</h2>
+   <div class="container is-max-desktop">
+          <!-- Concurrent Work. -->
+        <div class="columns is-centered">
+            <div class="column is-full-width">
+            <h2 class="title is-3">Related Links</h2>
 
-        <div class="content has-text-justified">
-          <p>
-            There's a lot of excellent work that was introduced around the same time as ours.
-          </p>
-          <p>
-            <a href="https://arxiv.org/abs/2510.04021">Fit Pixels, Get Labels</a> meta-learns weight initializations for implicit networks which can then be fine-tuned on images to provide segmentations.
-          </p>
-          <p>
-            <a href="https://papers.miccai.org/miccai-2025/0638-Paper4418.html">NIMOSEF</a> Extends the original NISF paper to also model spatial deformations.
-          </p>
-          <p>
-            <a href="https://arxiv.org/abs/2506.09668">CINeMA</a> Generates conditional implicit spatio-semporal atlases of the perinatal brain.
-          </p>
-        </div>
-      </div>
-    </div>
-    <!--/ Concurrent Work. -->
-
-  </div>
+                <div class="content has-text-justified">
+                  <p>
+                    There's a lot of excellent work that was introduced around the same time as ours.
+                  </p>
+                  <p>
+                    <a href="https://arxiv.org/abs/2510.04021">Fit Pixels, Get Labels (Vyas, et al. 2025)</a> meta-learns weight initializations for implicit networks which can then be fine-tuned on images to provide segmentations.
+                  </p>
+                  <p>
+                    <a href="https://papers.miccai.org/miccai-2025/0638-Paper4418.html">NIMOSEF (Banus, et al. 2025)</a> Extends the original NISF paper to also model spatial deformations.
+                  </p>
+                  <p>
+                    <a href="https://arxiv.org/abs/2506.09668">CINeMA (Dannecker, et al. 2025)</a> Generates conditional implicit spatio-semporal atlases of the perinatal brain.
+                  </p>
+                </div>
+           </div>
+       </div>
+   </div>
 </section>
 
 
