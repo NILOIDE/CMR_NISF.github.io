@@ -25,9 +25,93 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+  <style>
+    /* Consolidated mesh gallery styles */
+    .mesh-gallery-section {
+        padding: 40px 20px;
+    }
+
+    .mesh-gallery {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .mesh-item {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-width: 300px;
+        max-width: 600px;
+    }
+
+    .mesh-container {
+        width: 100%;
+        height: 400px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #000;
+    }
+
+    .mesh-container iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+
+    .mesh-container video {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+    }
+
+    .mesh-label {
+        text-align: center;
+        margin-top: 10px;
+        font-weight: bold;
+        color: #333;
+        line-height: 1.4;
+    }
+
+    .interactive-label {
+        text-align: left;
+        font-size: 12px;
+        color: #666;
+        font-style: italic;
+        margin-bottom: 5px;
+        min-height: 18px;
+    }
+
+    .section-subtitle {
+        text-align: center;
+        margin: 30px auto;
+        max-width: 900px;
+        line-height: 1.6;
+        color: #333;
+        padding: 0 20px;
+    }
+
+    @media (max-width: 768px) {
+        .mesh-item {
+            min-width: 100%;
+        }
+
+        .mesh-container {
+            height: 300px;
+        }
+    }
+  </style>
 </head>
 <body>
-
 <!--<nav class="navbar" role="navigation" aria-label="main navigation">-->
 <!--  <div class="navbar-brand">-->
 <!--    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">-->
@@ -99,58 +183,37 @@
 
           <div class="column has-text-centered">
             <div class="publication-links">
-              <!-- PDF Link. -->
               <span class="link-block">
-                <a href="#"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
                   <span>Paper (Pending)</span>
                 </a>
               </span>
               <span class="link-block">
-                <a href="#"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span>
                   <span>arXiv (Pending)</span>
                 </a>
               </span>
-              <!-- Video Link. -->
               <span class="link-block">
-                <a href="#"
-                   class="external-link button is-normal is-rounded is-dark"
-                   aria-disabled="true"
-                  tabindex="-1">
-                  <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                  </span>
+                <a href="#" class="external-link button is-normal is-rounded is-dark" aria-disabled="true" tabindex="-1">
+                  <span class="icon"><i class="fab fa-youtube"></i></span>
                   <span>Video (Pending)</span>
                 </a>
               </span>
-              <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/NILOIDE/CMR_representations"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
+                <a href="https://github.com/NILOIDE/CMR_representations" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span>
                   <span>Code</span>
-                  </a>
+                </a>
               </span>
-              <!-- Dataset Link. -->
               <span class="link-block">
-                <a href="https://www.ukbiobank.ac.uk/use-our-data/apply-for-access/"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="far fa-images"></i>
-                  </span>
+                <a href="https://www.ukbiobank.ac.uk/use-our-data/apply-for-access/" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="far fa-images"></i></span>
                   <span>Data</span>
-                  </a>
+                </a>
+              </span>
             </div>
-
           </div>
         </div>
       </div>
@@ -164,338 +227,102 @@
       <h2 class="subtitle has-text-centered">
         <span class="dnerf">NISF++</span> takes any number of cardiac short-axis and long-axis MR slices and combines them into continuous 4D subject representations in world-space.
       </h2>
-      <img src="./static/images/Main_fig-Page-1.jpg"
-                 class="interpolation-image"
-                 alt="Architectural figure."/>
+      <img src="./static/images/Main_fig-Page-1.jpg" class="interpolation-image" alt="Architectural figure."/>
     </div>
   </div>
 </section>
 
 
-<html>
-<head>
-    <h2 class="subtitle has-text-centered">
-        <br>High-resolution intensity volumes and ventricle segmentations can be generated for any time point in the cardiac phase.
-      </h2>
-    <style>
-    body {
-        margin: 0;
-        padding: 20px;
-        font-family: Arial, sans-serif;
-    }
-    h1 {
-        text-align: center;
-        margin-bottom: 30px;
-    }
-    .mesh-gallery {
-        display: flex;
-        gap: 20px;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-    .mesh-item {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        min-width: 400px;
-        max-width: 600px;
-    }
-    .mesh-container {
-        width: 100%;
-        height: 400px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #000;
-    }
-    .mesh-container iframe {
-        width: 100%;
-        height: 100%;
-        border: none;
-    }
-    .mesh-container video {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        display: block;
-    }
-    .mesh-label {
-        text-align: center;
-        margin-top: 10px;
-        font-weight: bold;
-        color: #333;
-    }
-    .interactive-label {
-        text-align: left;
-        font-size: 12px;
-        color: #666;
-        font-style: italic;
-        margin-bottom: 5px;
-    }
-</style>
-</head>
-<body>
+<!-- Section 1: High-resolution volumes -->
+<section class="mesh-gallery-section">
+  <div class="container">
+    <h2 class="section-subtitle">
+      High-resolution intensity volumes and ventricle segmentations can be generated for any time point in the cardiac phase.
+    </h2>
     <div class="mesh-gallery">
-        <div class="mesh-item">
-            <div class="interactive-label">  </div>
-            <div class="mesh-container">
-              <video id="1037010_vol" autoplay controls muted loop playsinline height="100%">
-                <source src="./static/videos/20251217-035047-inference_trainSet_FT_ImageVisualization_test_opt5000_ft0250_volumes_1037287_highThresh110_planeNorm(0.2, 1.0, -0.15)_offset-40_cardiac_volume.mp4"
-                        type="video/mp4">
-            </div>
-            <div class="mesh-label">Intensity volume can be interpolated to any desired resolution <br> (Blood pools made transparent for visualization purposes)</div>
+      <div class="mesh-item">
+        <div class="interactive-label"></div>
+        <div class="mesh-container">
+          <video id="1037010_vol" autoplay controls muted loop playsinline>
+            <source src="./static/videos/20251217-035047-inference_trainSet_FT_ImageVisualization_test_opt5000_ft0250_volumes_1037287_highThresh110_planeNorm(0.2, 1.0, -0.15)_offset-40_cardiac_volume.mp4" type="video/mp4">
+          </video>
         </div>
+        <div class="mesh-label">Intensity volume can be interpolated to any desired resolution <br> (Blood pools made transparent for visualization purposes)</div>
+      </div>
 
-        <div class="mesh-item">
-            <div class="interactive-label">  </div>
-            <div class="mesh-container">
-                <video id="1021869_mesh" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/20251125-034718-psf20k_100subj-20ann_1011525.mp4"
-                    type="video/mp4">
-            </div>
-            <div class="mesh-label">Meshes can be generated from <br> super-resolution segmentation predictions </div>
+      <div class="mesh-item">
+        <div class="interactive-label"></div>
+        <div class="mesh-container">
+          <video id="1021869_mesh" autoplay controls muted loop playsinline>
+            <source src="./static/videos/20251125-034718-psf20k_100subj-20ann_1011525.mp4" type="video/mp4">
+          </video>
         </div>
+        <div class="mesh-label">Meshes can be generated from <br> super-resolution segmentation predictions</div>
+      </div>
     </div>
-</body>
-</html>
+  </div>
+</section>
 
 
-<html>
-<head>
-    <h2 class="subtitle has-text-centered">
-       <br> <br>By design, the segmentation on every slice are precisely mutually consistent, as they are 2D cross-sectional slices of the same 3D representation.<br>
-        This is something conventional slice-wise segmentation methods are not able to guarantee. <br>
-      </h2>
-    <style>
-    body {
-        margin: 0;
-        padding: 20px;
-        font-family: Arial, sans-serif;
-    }
-    h1 {
-        text-align: center;
-        margin-bottom: 30px;
-    }
-    .mesh-gallery2 {
-        display: flex;
-        gap: 20px;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-    .mesh-item2 {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        min-width: 400px;
-        max-width: 600px;
-    }
-    .mesh-container2 {
-        width: 100%;
-        height: 400px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #000;
-    }
-    .mesh-container2 iframe {
-        width: 100%;
-        height: 100%;
-        border: none;
-    }
-    .mesh-container2 video {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        display: block;
-    }
-    .mesh-label {
-        text-align: center;
-        margin-top: 10px;
-        font-weight: bold;
-        color: #333;
-    }
-    .interactive-label {
-        text-align: left;
-        font-size: 12px;
-        color: #666;
-        font-style: italic;
-        margin-bottom: 5px;
-    }
-</style>
-</head>
-<body>
-    <div class="mesh-gallery2">
-        <div class="mesh-item2">
-            <div class="interactive-label">  </div>
-            <div class="mesh-container2">
-                <video id="20251125-034718-psf20k_100subj-20ann_1021869_mosaic" autoplay controls muted loop playsinline>
-                    <source src="./static/videos/20251125-034718-psf20k_100subj-20ann_1021869_mosaic.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="mesh-label">Segmenting a slice equates to <br> taking 2D cross-section of 3D representation</div>
+<!-- Section 2: Mutually consistent segmentations -->
+<section class="mesh-gallery-section">
+  <div class="container">
+    <h2 class="section-subtitle">
+      By design, the segmentation on every slice are precisely mutually consistent, as they are 2D cross-sectional slices of the same 3D representation.<br>
+      This is something conventional slice-wise segmentation methods are not able to guarantee.
+    </h2>
+    <div class="mesh-gallery">
+      <div class="mesh-item">
+        <div class="interactive-label"></div>
+        <div class="mesh-container">
+          <video id="mosaic_video" autoplay controls muted loop playsinline>
+            <source src="./static/videos/20251125-034718-psf20k_100subj-20ann_1021869_mosaic.mp4" type="video/mp4">
+          </video>
         </div>
+        <div class="mesh-label">Segmenting a slice equates to <br> taking 2D cross-section of 3D representation</div>
+      </div>
 
-        <div class="mesh-item2">
-            <div class="interactive-label">(Interactive demo)</div>
-            <div class="mesh-container2">
-                <iframe src="./static/objs/20251125-034718-psf20k_100subj-20ann_1021869_pred_slices_after.html"></iframe>
-            </div>
-            <div class="mesh-label">Segmentations across all slices <br> are precisely mutually consistent </div>
+      <div class="mesh-item">
+        <div class="interactive-label">(Interactive demo)</div>
+        <div class="mesh-container">
+          <iframe src="./static/objs/20251125-034718-psf20k_100subj-20ann_1021869_pred_slices_after.html"></iframe>
         </div>
+        <div class="mesh-label">Segmentations across all slices <br> are precisely mutually consistent</div>
+      </div>
     </div>
-</body>
-</html>
+  </div>
+</section>
 
-
-<html>
-<head>
-    <h2 class="subtitle has-text-centered">
-       <br> <br>The optimization process corrects for commonplace respiratory and patient motion by refining rigid parameters in the world-space transformation.<br>
+<!-- Section 3: Motion correction -->
+<section class="mesh-gallery-section">
+  <div class="container">
+    <h2 class="section-subtitle">
+      The optimization process corrects for commonplace respiratory and patient motion by refining rigid parameters in the world-space transformation.<br>
       We show how the prior to optimization slices often contain severe misalignment. Meanwhile, post-optimization overlap of intensities and segmentation along slice intersections is minimized.
-      </h2>
-    <style>
-    body {
-        margin: 0;
-        padding: 20px;
-        font-family: Arial, sans-serif;
-    }
-    h1 {
-        text-align: center;
-        margin-bottom: 30px;
-    }
-    .mesh-gallery {
-        display: flex;
-        gap: 20px;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-    .mesh-item {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        min-width: 400px;
-        max-width: 600px;
-    }
-    .mesh-container {
-        width: 100%;
-        height: 400px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    .mesh-container iframe {
-        width: 100%;
-        height: 100%;
-        border: none;
-    }
-    .mesh-label {
-        text-align: center;
-        margin-top: 10px;
-        font-weight: bold;
-        color: #333;
-    }
-    .interactive-label {
-        text-align: left;
-        font-size: 12px;
-        color: #666;
-        font-style: italic;
-        margin-bottom: 5px;
-    }
-</style>
-</head>
-<body>
+    </h2>
     <div class="mesh-gallery">
-        <div class="mesh-item">
-            <div class="interactive-label">(Interactive demo)</div>
-            <div class="mesh-container">
-                <iframe src="./static/objs/1021869_before.html"></iframe>
-            </div>
-            <div class="mesh-label">Initial alignment of GT segmentations <br>(notice misalignments between long- and short-axis slices)</div>
+      <div class="mesh-item">
+        <div class="interactive-label">(Interactive demo)</div>
+        <div class="mesh-container">
+          <iframe src="./static/objs/1021869_before.html"></iframe>
         </div>
+        <div class="mesh-label">Initial alignment of GT segmentations <br>(notice misalignments between long- and short-axis slices)</div>
+      </div>
 
-        <div class="mesh-item">
-            <div class="interactive-label">(Interactive demo)</div>
-            <div class="mesh-container">
-                <iframe src="./static/objs/1021869_after.html"></iframe>
-            </div>
-            <div class="mesh-label">Optimized alignment of GT segmentations </div>
+      <div class="mesh-item">
+        <div class="interactive-label">(Interactive demo)</div>
+        <div class="mesh-container">
+          <iframe src="./static/objs/1021869_after.html"></iframe>
         </div>
+        <div class="mesh-label">Optimized alignment of GT segmentations</div>
+      </div>
     </div>
-</body>
-</html>
-
-
-
-<!--<section class="hero is-light is-small">-->
-<!--  <div class="hero-body">-->
-<!--    <div class="container">-->
-<!--      <div id="results-carousel" class="carousel results-carousel">-->
-<!--        <div class="item item-steve">-->
-<!--          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">-->
-<!--            <source src="./static/videos/steve.mp4"-->
-<!--                    type="video/mp4">-->
-<!--          </video>-->
-<!--        </div>-->
-<!--        <div class="item item-chair-tp">-->
-<!--          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">-->
-<!--            <source src="./static/videos/chair-tp.mp4"-->
-<!--                    type="video/mp4">-->
-<!--          </video>-->
-<!--        </div>-->
-<!--        <div class="item item-shiba">-->
-<!--          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">-->
-<!--            <source src="./static/videos/shiba.mp4"-->
-<!--                    type="video/mp4">-->
-<!--          </video>-->
-<!--        </div>-->
-<!--        <div class="item item-fullbody">-->
-<!--          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">-->
-<!--            <source src="./static/videos/fullbody.mp4"-->
-<!--                    type="video/mp4">-->
-<!--          </video>-->
-<!--        </div>-->
-<!--        <div class="item item-blueshirt">-->
-<!--          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">-->
-<!--            <source src="./static/videos/blueshirt.mp4"-->
-<!--                    type="video/mp4">-->
-<!--          </video>-->
-<!--        </div>-->
-<!--        <div class="item item-mask">-->
-<!--          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">-->
-<!--            <source src="./static/videos/mask.mp4"-->
-<!--                    type="video/mp4">-->
-<!--          </video>-->
-<!--        </div>-->
-<!--        <div class="item item-coffee">-->
-<!--          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">-->
-<!--            <source src="./static/videos/coffee.mp4"-->
-<!--                    type="video/mp4">-->
-<!--          </video>-->
-<!--        </div>-->
-<!--        <div class="item item-toby">-->
-<!--          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">-->
-<!--            <source src="./static/videos/toby2.mp4"-->
-<!--                    type="video/mp4">-->
-<!--          </video>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</section>-->
+  </div>
+</section>
 
 
 <section class="section">
   <div class="container is-max-desktop">
-    <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
@@ -521,154 +348,32 @@ Our qualitative results explore how our representations can be derived irrespect
         </div>
       </div>
     </div>
-    <!--/ Abstract. -->
-
-    <!-- Paper video. -->
-<!--    <div class="columns is-centered has-text-centered">-->
-<!--      <div class="column is-four-fifths">-->
-<!--        <h2 class="title is-3">Video</h2>-->
-<!--        <div class="publication-video">-->
-<!--          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"-->
-<!--                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-    <!--/ Paper video. -->
   </div>
 </section>
 
-
-<!--<section class="section">-->
-<!--  <div class="container is-max-desktop">-->
-
-<!--    <div class="columns is-centered">-->
-
-<!--      &lt;!&ndash; Visual Effects. &ndash;&gt;-->
-<!--      <div class="column">-->
-<!--        <div class="content">-->
-<!--          <h2 class="title is-3">Visual Effects</h2>-->
-<!--          <p>-->
-<!--            Using <i>nerfies</i> you can create fun visual effects. This Dolly zoom effect-->
-<!--            would be impossible without nerfies since it would require going through a wall.-->
-<!--          </p>-->
-<!--          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">-->
-<!--            <source src="./static/videos/dollyzoom-stacked.mp4"-->
-<!--                    type="video/mp4">-->
-<!--          </video>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      &lt;!&ndash;/ Visual Effects. &ndash;&gt;-->
-
-<!--      &lt;!&ndash; Matting. &ndash;&gt;-->
-<!--      <div class="column">-->
-<!--        <h2 class="title is-3">Matting</h2>-->
-<!--        <div class="columns is-centered">-->
-<!--          <div class="column content">-->
-<!--            <p>-->
-<!--              As a byproduct of our method, we can also solve the matting problem by ignoring-->
-<!--              samples that fall outside of a bounding box during rendering.-->
-<!--            </p>-->
-<!--            <video id="matting-video" controls playsinline height="100%">-->
-<!--              <source src="./static/videos/matting.mp4"-->
-<!--                      type="video/mp4">-->
-<!--            </video>-->
-<!--          </div>-->
-
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    &lt;!&ndash;/ Matting. &ndash;&gt;-->
-
-<!--    &lt;!&ndash; Animation. &ndash;&gt;-->
-<!--    <div class="columns is-centered">-->
-<!--      <div class="column is-full-width">-->
-<!--        <h2 class="title is-3">Animation</h2>-->
-
-<!--        &lt;!&ndash; Interpolating. &ndash;&gt;-->
-<!--        <h3 class="title is-4">Interpolating states</h3>-->
-<!--        <div class="content has-text-justified">-->
-<!--          <p>-->
-<!--            We can also animate the scene by interpolating the deformation latent codes of two input-->
-<!--            frames. Use the slider here to linearly interpolate between the left frame and the right-->
-<!--            frame.-->
-<!--          </p>-->
-<!--        </div>-->
-<!--        <div class="columns is-vcentered interpolation-panel">-->
-<!--          <div class="column is-3 has-text-centered">-->
-<!--            <img src="./static/images/interpolate_start.jpg"-->
-<!--                 class="interpolation-image"-->
-<!--                 alt="Interpolate start reference image."/>-->
-<!--            <p>Start Frame</p>-->
-<!--          </div>-->
-<!--          <div class="column interpolation-video-column">-->
-<!--            <div id="interpolation-image-wrapper">-->
-<!--              Loading...-->
-<!--            </div>-->
-<!--            <input class="slider is-fullwidth is-large is-info"-->
-<!--                   id="interpolation-slider"-->
-<!--                   step="1" min="0" max="100" value="0" type="range">-->
-<!--          </div>-->
-<!--          <div class="column is-3 has-text-centered">-->
-<!--            <img src="./static/images/interpolate_end.jpg"-->
-<!--                 class="interpolation-image"-->
-<!--                 alt="Interpolation end reference image."/>-->
-<!--            <p class="is-bold">End Frame</p>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <br/>-->
-<!--        &lt;!&ndash;/ Interpolating. &ndash;&gt;-->
-
-<!--        &lt;!&ndash; Re-rendering. &ndash;&gt;-->
-<!--        <h3 class="title is-4">Re-rendering the input video</h3>-->
-<!--        <div class="content has-text-justified">-->
-<!--          <p>-->
-<!--            Using <span class="dnerf">Nerfies</span>, you can re-render a video from a novel-->
-<!--            viewpoint such as a stabilized camera by playing back the training deformations.-->
-<!--          </p>-->
-<!--        </div>-->
-<!--        <div class="content has-text-centered">-->
-<!--          <video id="replay-video"-->
-<!--                 controls-->
-<!--                 muted-->
-<!--                 preload-->
-<!--                 playsinline-->
-<!--                 width="75%">-->
-<!--            <source src="./static/videos/replay.mp4"-->
-<!--                    type="video/mp4">-->
-<!--          </video>-->
-<!--        </div>-->
-<!--        &lt;!&ndash;/ Re-rendering. &ndash;&gt;-->
-
-<!--      </div>-->
-<!--    </div>-->
-<!--    &lt;!&ndash;/ Animation. &ndash;&gt;-->
-
 <section class="section">
-   <div class="container is-max-desktop">
-          <!-- Concurrent Work. -->
-        <div class="columns is-centered">
-            <div class="column is-full-width">
-            <h2 class="title is-3">Related Links</h2>
-
-                <div class="content has-text-justified">
-                  <p>
-                    There's a lot of excellent work that was introduced around the same time as ours.
-                  </p>
-                  <p>
-                    <a href="https://arxiv.org/abs/2510.04021">Fit Pixels, Get Labels (Vyas, et al. 2025)</a> meta-learns weight initializations for implicit networks which can then be fine-tuned on images to provide segmentations.
-                  </p>
-                  <p>
-                    <a href="https://papers.miccai.org/miccai-2025/0638-Paper4418.html">NIMOSEF (Banus, et al. 2025)</a> Extends the original NISF paper to also model spatial deformations.
-                  </p>
-                  <p>
-                    <a href="https://arxiv.org/abs/2506.09668">CINeMA (Dannecker, et al. 2025)</a> Generates conditional implicit spatio-semporal atlases of the perinatal brain.
-                  </p>
-                </div>
-           </div>
-       </div>
-   </div>
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Related Links</h2>
+        <div class="content has-text-justified">
+          <p>
+            There's a lot of excellent work that was introduced around the same time as ours.
+          </p>
+          <p>
+            <a href="https://arxiv.org/abs/2510.04021">Fit Pixels, Get Labels (Vyas, et al. 2025)</a> meta-learns weight initializations for implicit networks which can then be fine-tuned on images to provide segmentations.
+          </p>
+          <p>
+            <a href="https://papers.miccai.org/miccai-2025/0638-Paper4418.html">NIMOSEF (Banus, et al. 2025)</a> Extends the original NISF paper to also model spatial deformations.
+          </p>
+          <p>
+            <a href="https://arxiv.org/abs/2506.09668">CINeMA (Dannecker, et al. 2025)</a> Generates conditional implicit spatio-semporal atlases of the perinatal brain.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
-
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
@@ -683,15 +388,13 @@ Our qualitative results explore how our representations can be derived irrespect
   </div>
 </section>
 
-
 <footer class="footer">
   <div class="container">
     <div class="content has-text-centered">
-      <a class="icon-link"
-         href="./static/videos/nerfies_paper.pdf">
-        <i class="fas fa-file-pdf"></i>
-      </a>
-      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+<!--      <a class="icon-link" href="./static/videos/nerfies_paper.pdf">-->
+<!--        <i class="fas fa-file-pdf"></i>-->
+<!--      </a>-->
+      <a class="icon-link" href="https://github.com/NILOIDE" class="external-link" disabled>
         <i class="fab fa-github"></i>
       </a>
     </div>
@@ -699,13 +402,11 @@ Our qualitative results explore how our representations can be derived irrespect
       <div class="column is-8">
         <div class="content">
           <p>
-            This website is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
             Commons Attribution-ShareAlike 4.0 International License</a>.
           </p>
           <p>
-            This project page is forked from the <a
-              href="https://github.com/nerfies/nerfies.github.io">Nerfies (Park, et al.)</a> template.
+            This project page is forked from the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies (Park, et al.)</a> template.
           </p>
         </div>
       </div>
